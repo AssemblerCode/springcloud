@@ -1,0 +1,23 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: cloud_configCenter_server
+
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/AssemblerCode/springcloud
+          username: 18205773228@163.com
+          password: jin1997c#
+          search-paths: local
+      label: main
+
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        hostname: 192.168.1.103
+
