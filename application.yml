@@ -1,5 +1,4 @@
-server:
-  port: 8009
+
 spring:
   application:
     name: cloud_consumer_hystrix_dashboard
