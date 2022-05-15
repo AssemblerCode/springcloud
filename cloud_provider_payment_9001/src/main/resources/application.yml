@@ -1,0 +1,41 @@
+#该文件在配置中心对应的文件名称:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}=nacos-payment-providerdev.yaml
+
+server:
+  port: 9001
+
+spring:
+#  profiles:
+#    active: dev
+
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        #        配置nacos地址
+        server-addr: localhost:8848
+
+#      config:
+#        password: nacos
+#        username: nacos
+#        server-addr: localhost:8848
+#        file-extension: yaml
+#        group: DEFAULT_GROUP
+
+service-uris:
+  consumerOrderUrl: http://nacos-consumer-order
+
+#打开全部监控端点
+maagement:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure:
+            logging: info
