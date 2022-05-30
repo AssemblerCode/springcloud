@@ -1,0 +1,38 @@
+server:
+  port: 8401
+
+spring:
+  profiles:
+    active: dev
+
+  application:
+    name: nacos-sentinel
+  cloud:
+    sentinel:
+      transport:
+
+        #配置sentinel的dashborad地址
+        dashboard: localhost:8080
+
+        #表示如果8719被占用了那么就会找到8719以后第一个未被占用的端口
+        port: 8719
+
+    nacos:
+      discovery:
+        #        配置nacos地址
+        server-addr: 192.168.1.103:80
+
+#打开全部监控端点
+maagement:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure:
+            logging: info

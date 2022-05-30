@@ -2,7 +2,7 @@ spring:
   profiles:
     active: info
   application:
-    name: nacos-payment-provider
+    name: nacos-sentinel
   cloud:
     nacos:
       config:
