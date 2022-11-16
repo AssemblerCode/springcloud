@@ -18,6 +18,9 @@
         <module>cloud_provider_payment_9001</module>
         <module>cloud_consumer_order_10000</module>
         <module>cloud_sentinel_service_8401</module>
+        <module>cloud_stream_service</module>
+        <module>cloud_seata_order_service</module>
+        <module>cloud_seata_pay_service</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -53,6 +56,8 @@
         <feign.httpclient>10.7.2</feign.httpclient>
         <spring.cloud.starter.alibaba.sentinel.version>2021.1</spring.cloud.starter.alibaba.sentinel.version>
         <sentinel.datasource.nacos>1.8.4</sentinel.datasource.nacos>
+        <stream.version>2.2.1.RELEASE</stream.version>
+        <mybatis.starter.version>2.2.2</mybatis.starter.version>
     </properties>
 
     <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
@@ -143,6 +148,19 @@
                 <groupId>io.github.openfeign</groupId>
                 <artifactId>feign-httpclient</artifactId>
                 <version>${feign.httpclient}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-stream</artifactId>
+                <version>${stream.version}</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.starter.version}</version>
             </dependency>
 
         </dependencies>

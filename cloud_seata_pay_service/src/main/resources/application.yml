@@ -1,0 +1,47 @@
+#该文件在配置中心对应的文件名称:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}=nacos-payment-providerdev.yaml
+
+server:
+  port: 9003
+
+spring:
+  #  profiles:
+  #    active: dev
+
+  application:
+    name: cloud-seata-pay-service
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/attest?useUnicode=true&rewriteBatchedStatements=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: jin1997c#
+
+  cloud:
+    nacos:
+      discovery:
+        #        配置nacos地址
+        server-addr: 192.168.1.106:80
+
+seata:
+  tx-service-group: myGroup  #事务组名称,需要和配置中心的service.vgroupMapping保持一致
+  service:
+    vgroup-mapping:
+      myGroup: default  #key是事务组名称,value要和机房名称一致
+
+#打开全部监控端点
+maagement:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure:
+            logging: info
+mybatis:
+  type-aliases-package:
+  mapper-locations: classpath:/mapper/*.xml
