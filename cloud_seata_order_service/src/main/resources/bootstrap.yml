@@ -1,17 +1,13 @@
 spring:
-  profiles:
-    active: info
   cloud:
     nacos:
+      discovery:
+        server-addr: 127.0.0.1:80
+        password: nacos
+        username: nacos
+
       config:
         password: nacos
         username: nacos
-        server-addr: 192.168.1.106:80
-        file-extension: yaml
-#        group: DEFAULT_GROUP
-
-#seata:
-#  tx-service-group: cloud-seata-pay-service-fescar-service-group  #事务组名称,需要和配置中心的service.vgroupMapping保持一致
-#  service:
-#    vgroup-mapping:
-#      mygroup: def123  #key是事务组名称,value要和机房名称一致
+        server-addr: 127.0.0.1:80
+        group: DEFAULT_GROUP

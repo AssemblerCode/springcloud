@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface PayMapper {
-    int payment(@Param("id") Integer id);
+    void payment(@Param("id") Integer id);
 }

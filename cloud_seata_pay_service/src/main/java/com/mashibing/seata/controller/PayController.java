@@ -13,9 +13,9 @@ public class PayController {
     @Autowired
     PayService ps;
 
-    @GetMapping("/payment")
     @GlobalTransactional
-    String payment(){
+    @GetMapping("/payment")
+    String payment() throws Exception {
         Integer id = ps.payment();
         return "success:200"+id;
     }

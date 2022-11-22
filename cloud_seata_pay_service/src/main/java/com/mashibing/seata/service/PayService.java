@@ -1,5 +1,5 @@
 package com.mashibing.seata.service;
 
 public interface PayService {
-    Integer payment();
+    Integer payment() throws Exception;
 }

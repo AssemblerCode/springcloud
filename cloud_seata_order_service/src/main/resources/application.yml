@@ -18,18 +18,40 @@ spring:
   cloud:
     nacos:
       discovery:
-        #        配置nacos地址
-        server-addr: 192.168.1.106:80
+        group: SEATA_GROUP
+        server-addr: localhost:80
+
+      config:
+        group: SEATA_GROUP
+
+    alibaba:
+      seata:
+        cloud-seata-order-service-group: default
+
 
 mybatis:
-  type-aliases-package:
+  type-aliases-package: com.mashibing.seata.pojo.*
   mapper-locations: classpath:/mapper/*.xml
 
-seata:
-  tx-service-group: myGroup  #事务组名称,需要和配置中心的service.vgroupMapping保持一致
-  service:
-    vgroup-mapping:
-      myGroup: default  #key是事务组名称,value要和机房名称一致
+#seata:
+#  enabled: true
+#  registry:
+#    type: nacos
+#    nacos:
+#      server-addr: 127.0.0.1:80
+#      dataId: "seataServer.properties"
+#      group: "DEFAULT_GROUP"
+#      namespace: ""
+#      username: "nacos"
+#      password: "nacos"
+#
+#  tx-service-group: myGroup  #事务组名称,需要和配置中心的service.vgroupMapping保持一致
+##
+#  service:
+#    vgroup-mapping:
+#      myGroup: hzTransaction  #key是事务组名称,value要和机房名称一致
+#    grouplist:
+#      hzTransaction: 127.0.0.1:8091
 
 #打开全部监控端点
 maagement:
