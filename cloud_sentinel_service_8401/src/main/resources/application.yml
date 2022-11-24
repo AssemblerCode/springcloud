@@ -20,7 +20,7 @@ spring:
     nacos:
       discovery:
         #        配置nacos地址
-        server-addr: 192.168.1.103:80
+        server-addr: 192.168.1.106:80
 
 #打开全部监控端点
 maagement:

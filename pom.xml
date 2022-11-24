@@ -21,6 +21,7 @@
         <module>cloud_stream_service</module>
         <module>cloud_seata_order_service</module>
         <module>cloud_seata_pay_service</module>
+<!--        <module>cloud_seata</module>-->
     </modules>
     <packaging>pom</packaging>
 
