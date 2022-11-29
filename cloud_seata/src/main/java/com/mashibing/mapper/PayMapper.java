@@ -1,4 +1,4 @@
-package com.mashibing.seata;
+package com.mashibing.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

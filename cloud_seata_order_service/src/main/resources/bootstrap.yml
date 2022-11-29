@@ -1,13 +1,23 @@
 spring:
+  profiles:
+    active: info
   cloud:
     nacos:
+      server-addr: 192.168.1.106:80
+      group: "SEATA_GROUP"
+      namespace: ""
+      dataId: "seataServer.properties"
+      username: "nacos"
+      password: "nacos"
+
       discovery:
-        server-addr: 127.0.0.1:80
+        server-addr: 192.168.1.106:80
         password: nacos
         username: nacos
 
       config:
         password: nacos
         username: nacos
-        server-addr: 127.0.0.1:80
+        server-addr: 192.168.1.106:80
         group: DEFAULT_GROUP
+        file-extension: properties

@@ -1,10 +1,9 @@
 #该文件在配置中心对应的文件名称:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}=nacos-payment-providerdev.yaml
 
 server:
-  port: 9003
+  port: 9004
 
 spring:
-
   application:
     name: cloud-seata-pay-service
 
@@ -21,22 +20,34 @@ spring:
         server-addr: 192.168.1.106:80
 
       config:
+        server-addr: 192.168.1.106:80
         group: SEATA_GROUP
 
 #    alibaba:
 #      seata:
-#        cloud-seata-pay-service-group: default
+#        tx-service-group: seataCluster
 
+# seata 配置
 seata:
+#   使用哪个事务组
+  tx-service-group: cloud-seata-pay-service-seata-service-group
+  service:
+    # 事务组对应的集群民称
+    vgroup-mapping:
+      cloud-seata-order-service-seata-service-group: default
+
+#     seata-server的地址
+#    grouplist:
+#      seata-server: 127.0.0.1:8091
+
+  enabled: true
+
   config:
-    type: nacos
+    nacos:
+      data-id: seataServer.properties
+  registry:
     nacos:
       server-addr: 192.168.1.106:80
-      group : "SEATA_GROUP"
-      namespace: ""
-      dataId: "seataServer.properties"
-      username: "nacos"
-      password: "nacos"
 
 #打开全部监控端点
 maagement:

@@ -1,10 +1,9 @@
+#该文件在配置中心对应的文件名称:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}=nacos-payment-providerdev.yaml
 
 server:
-  port: 9002
+  port: 9004
 
 spring:
-  #  profiles:
-  #    active: dev
 
   application:
     name: cloud-seata-order-service
@@ -19,38 +18,37 @@ spring:
     nacos:
       discovery:
         group: SEATA_GROUP
-        server-addr: localhost:80
+        server-addr: 192.168.1.106:80
 
       config:
+        server-addr: 192.168.1.106:80
         group: SEATA_GROUP
 
-    alibaba:
-      seata:
-        cloud-seata-order-service-group: default
+#    alibaba:
+#      seata:
+#        tx-service-group: seataCluster
 
-mybatis:
-  type-aliases-package: com.mashibing.seata.pojo.*
-  mapper-locations: classpath:/mapper/*.xml
+# seata 配置
+seata:
+#   使用哪个事务组
+#  tx-service-group: my_tx_service_group
+  service:
+    # 事务组对应的集群民称
+    vgroup-mapping:
+      cloud-seata-pay-service-seata-service-group: default
 
-#seata:
-#  enabled: true
-#  registry:
-#    type: nacos
-#    nacos:
-#      server-addr: 127.0.0.1:80
-#      dataId: "seataServer.properties"
-#      group: "DEFAULT_GROUP"
-#      namespace: ""
-#      username: "nacos"
-#      password: "nacos"
-#
-#  tx-service-group: myGroup  #事务组名称,需要和配置中心的service.vgroupMapping保持一致
-##
-#  service:
-#    vgroup-mapping:
-#      myGroup: hzTransaction  #key是事务组名称,value要和机房名称一致
+#     seata-server的地址
 #    grouplist:
-#      hzTransaction: 127.0.0.1:8091
+#      seata-server: 127.0.0.1:8091
+
+  enabled: true
+
+  config:
+    nacos:
+      data-id: seataServer.properties
+  registry:
+    nacos:
+      server-addr: 192.168.1.106:80
 
 #打开全部监控端点
 maagement:
@@ -61,8 +59,14 @@ maagement:
 
 logging:
   level:
+    io:
+      seata: debug
     org:
       springframework:
         boot:
           autoconfigure:
             logging: info
+
+mybatis:
+  type-aliases-package: com.mashibing.pojo.*
+  mapper-locations: classpath:/mapper/*.xml

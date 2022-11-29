@@ -1,7 +1,7 @@
 #该文件在配置中心对应的文件名称:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}=nacos-payment-providerdev.yaml
 
 server:
-  port: 9004
+  port: 9003
 
 spring:
 
@@ -37,7 +37,7 @@ seata:
     vgroup-mapping:
       cloud-seata-seata-service-group: default
 
-    # seata-server的地址
+#     seata-server的地址
 #    grouplist:
 #      seata-server: 127.0.0.1:8091
 
@@ -68,5 +68,5 @@ logging:
             logging: info
 
 mybatis:
-  type-aliases-package: com.mashibing.seata.pojo.*
+  type-aliases-package: com.mashibing.pojo.*
   mapper-locations: classpath:/mapper/*.xml

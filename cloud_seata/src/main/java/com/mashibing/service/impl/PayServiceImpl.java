@@ -1,9 +1,8 @@
-package com.mashibing.seata.service.impl;
+package com.mashibing.service.impl;
 
 import com.mashibing.mapper.PayMapper;
-import com.mashibing.seata.service.OrderService;
-import com.mashibing.seata.service.PayService;
-import io.seata.spring.annotation.GlobalTransactional;
+import com.mashibing.service.OrderService;
+import com.mashibing.service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +14,8 @@ public class PayServiceImpl implements PayService {
     @Autowired
     OrderService os;
 
-    @GlobalTransactional
     @Override
+
     public Integer payment()   {
         pm.payment(1);
         String order = os.createOrder();
