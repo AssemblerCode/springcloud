@@ -1,7 +1,7 @@
-package com.mashibing.seata.controller;
+package com.mashibing.controller;
 
 
-import com.mashibing.seata.service.PayService;
+import com.mashibing.service.PayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
