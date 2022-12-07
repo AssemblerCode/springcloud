@@ -1,7 +1,7 @@
 package com.mashibing.controller;
 
 
-import com.mashibing.service.PayService;
+import com.mashibing.service.impl.PayServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PayController {
 
     @Autowired
-    PayService ps;
+    PayServiceImpl  ps;
 
     @GetMapping("/payment")
     String payment() throws Exception {
         Integer id = ps.payment();
-        return "success:200"+id;
+        return "success:200" + id;
     }
 }

@@ -6,7 +6,7 @@ server:
 spring:
 
   application:
-    name: cloud-seata-order-service
+    name: goods-service
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,37 +18,39 @@ spring:
     nacos:
       discovery:
         group: SEATA_GROUP
-        server-addr: 192.168.1.106:80
+        server-addr: 192.168.2.222:80
 
       config:
-        server-addr: 192.168.1.106:80
+        server-addr: 192.168.2.222:80
         group: SEATA_GROUP
 
 #    alibaba:
 #      seata:
-#        tx-service-group: seataCluster
+#        tx-service-group: goods-service-fescar-service-group
 
 # seata 配置
 seata:
-#   使用哪个事务组
-#  tx-service-group: my_tx_service_group
+##   使用哪个事务组
+  tx-service-group: goods-service-fescar-service-group
   service:
     # 事务组对应的集群民称
     vgroup-mapping:
-      cloud-seata-pay-service-seata-service-group: default
+      goods-service-fescar-service-group: default
 
-#     seata-server的地址
-#    grouplist:
-#      seata-server: 127.0.0.1:8091
+  enable-auto-data-source-proxy: false
 
-  enabled: true
-
-  config:
-    nacos:
-      data-id: seataServer.properties
-  registry:
-    nacos:
-      server-addr: 192.168.1.106:80
+#  enabled: true
+#
+#  groupList:
+#    seata-server: 192.168.2.222:8091
+#
+#  config:
+#    nacos:
+#      data-id: seataServer.properties
+#      server-addr: 192.168.2.222:80
+#  registry:
+#    nacos:
+#      server-addr: 192.168.2.222:80
 
 #打开全部监控端点
 maagement:

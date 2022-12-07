@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: info
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      config:
+        password: nacos
+        username: nacos
+        server-addr: 192.168.1.103:80
+        file-extension: yaml
+        group: dev_group
+        namespace: 7c9b6687-c334-4a29-925c-f9f1bd9a6453
+#        group: DEFAULT_GROUP

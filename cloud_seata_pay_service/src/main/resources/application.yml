@@ -6,7 +6,7 @@ server:
 spring:
 
   application:
-    name: cloud-seata-pay-service
+    name: pay-service
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,28 +18,39 @@ spring:
     nacos:
       discovery:
         group: SEATA_GROUP
-        server-addr: 192.168.1.106:80
+        server-addr: 192.168.2.222:80
 
       config:
-        server-addr: 192.168.1.106:80
+        server-addr: 192.168.2.222:80
         group: SEATA_GROUP
+
+#    alibaba:
+#      seata:
+#        tx-service-group: pay-service-fescar-service-group
+  # seata 服务分组，要与服务端nacos-config.txt中service.vgroup_mapping的后缀对应
 
 # seata 配置
 seata:
-  tx-service-group: cloud-seata-pay-service-fescar-service-group
+  tx-service-group: pay-service-fescar-service-group
   service:
     # 事务组对应的集群民称
     vgroup-mapping:
-      cloud-seata-pay-service-fescar-service-group: default
+      pay-service-fescar-service-group: default
 
-  enabled: true
+  enable-auto-data-source-proxy: false
 
-  config:
-    nacos:
-      data-id: seataServer.properties
-  registry:
-    nacos:
-      server-addr: 192.168.1.106:80
+#  enabled: true
+#
+#  groupList:
+#    seata-server: 192.168.2.222:8091
+#
+#  config:
+#    nacos:
+#      data-id: seataServer.properties
+#      server-addr: 192.168.2.222:80
+#  registry:
+#    nacos:
+#      server-addr: 192.168.2.222:80
 
 #打开全部监控端点
 maagement:
@@ -47,16 +58,6 @@ maagement:
     web:
       exposure:
         include: '*'
-
-logging:
-  level:
-    io:
-      seata: debug
-    org:
-      springframework:
-        boot:
-          autoconfigure:
-            logging: info
 
 mybatis:
   type-aliases-package: com.mashibing.pojo.*

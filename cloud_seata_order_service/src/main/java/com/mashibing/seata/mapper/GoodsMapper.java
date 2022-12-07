@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Mapper
 @Repository
-public interface OrderMapper {
-    int createOrder();
+public interface GoodsMapper {
+    int updateGoods();
 }

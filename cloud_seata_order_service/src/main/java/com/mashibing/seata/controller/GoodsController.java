@@ -1,20 +1,20 @@
 package com.mashibing.seata.controller;
 
-import com.mashibing.seata.service.OrderService;
+import com.mashibing.seata.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/order")
-public class OrderController {
+@RequestMapping("/goods")
+public class GoodsController {
     @Autowired
-    OrderService os;
+    GoodsService gs;
 
-    @GetMapping("/createOrder")
-    String createOrder(){
-        String order = os.createOrder();
+    @GetMapping("/divCount")
+    public String divCount(){
+        String order = gs.divCount();
         return order;
     }
 }

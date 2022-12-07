@@ -1,5 +1,8 @@
 package com.mashibing.service;
 
+import io.seata.spring.annotation.GlobalTransactional;
+
 public interface PayService {
-    Integer payment() throws Exception;
+    @GlobalTransactional
+    Integer payment();
 }
