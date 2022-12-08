@@ -12,7 +12,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @EnableFeignClients
 @EnableDiscoveryClient
 @EnableConfigurationProperties
-//@EnableAutoDataSourceProxy
+//@MapperScan(basePackages = "com.mashibing.mapper.*")
 public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(Main.class);

@@ -11,7 +11,6 @@ public class GoodsServiceImpl  implements GoodsService {
     @Resource
     GoodsMapper gm;
 
-//    @Transactional(rollbackFor = {Exception.class,RuntimeException.class})
     @Override
     public String divCount() {
         int res = gm.updateGoods();

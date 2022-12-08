@@ -11,7 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @EnableFeignClients
 @EnableDiscoveryClient
 @EnableConfigurationProperties
-
+//@MapperScan(basePackages = "com.mashibing.seata.mapper.*")
 public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(Main.class);

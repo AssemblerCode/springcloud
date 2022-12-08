@@ -11,7 +11,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cloud_seata_order_service</artifactId>
+    <artifactId>cloud_seata_goods_service</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -112,5 +112,6 @@
         </dependency>
 
     </dependencies>
+
 
 </project>

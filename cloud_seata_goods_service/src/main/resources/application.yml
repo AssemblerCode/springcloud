@@ -18,19 +18,14 @@ spring:
     nacos:
       discovery:
         group: SEATA_GROUP
-        server-addr: 192.168.2.222:80
+        server-addr: 192.168.1.106:80
 
       config:
-        server-addr: 192.168.2.222:80
+        server-addr: 192.168.1.106:80
         group: SEATA_GROUP
-
-#    alibaba:
-#      seata:
-#        tx-service-group: goods-service-fescar-service-group
 
 # seata 配置
 seata:
-##   使用哪个事务组
   tx-service-group: goods-service-fescar-service-group
   service:
     # 事务组对应的集群民称
@@ -39,35 +34,12 @@ seata:
 
   enable-auto-data-source-proxy: false
 
-#  enabled: true
-#
-#  groupList:
-#    seata-server: 192.168.2.222:8091
-#
-#  config:
-#    nacos:
-#      data-id: seataServer.properties
-#      server-addr: 192.168.2.222:80
-#  registry:
-#    nacos:
-#      server-addr: 192.168.2.222:80
-
 #打开全部监控端点
 maagement:
   endpoints:
     web:
       exposure:
         include: '*'
-
-logging:
-  level:
-    io:
-      seata: debug
-    org:
-      springframework:
-        boot:
-          autoconfigure:
-            logging: info
 
 mybatis:
   type-aliases-package: com.mashibing.pojo.*

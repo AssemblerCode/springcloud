@@ -19,7 +19,7 @@
         <module>cloud_consumer_order_10000</module>
         <module>cloud_sentinel_service_8401</module>
         <module>cloud_stream_service</module>
-        <module>cloud_seata_order_service</module>
+        <module>cloud_seata_goods_service</module>
         <module>cloud_seata_pay_service</module>
 <!--        <module>cloud_seata</module>-->
     </modules>
